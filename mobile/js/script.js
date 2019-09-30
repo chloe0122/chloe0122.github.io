@@ -3,13 +3,11 @@ $(document).ready(function(){
     $(window).on('resize',function(){
         var w_size = $(window).width();
         if( w_size >= deviceSize.pc ) {
-            $('p').text("width="+w_size+"   pc size");      
             window.location.href = './pc.html';
         }
         else if(w_size<=deviceSize.mobile ){
-            $('p').text("width="+w_size+"   mobile size");
             window.location.href = './mobile.html';
         }        
     });
-    //$(window).trigger('resize');
+    $(window).trigger('resize');
 });
