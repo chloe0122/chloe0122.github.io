@@ -3,7 +3,7 @@ $(document).ready(function(){
     $(window).on('resize',function(){
         var w_size = $(window).width();
         if( w_size >= deviceSize.pc ) {
-            window.location.href = './pc.html';
+            window.location.href = './index.html';
         }
         else if(w_size<=deviceSize.mobile ){
             window.location.href = './mobile.html';
