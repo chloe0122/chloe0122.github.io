@@ -4,10 +4,10 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="js/jquery-3.4.1.js"></script>
-        <script src="js/script.js"></script>
+        <!-- <link rel="stylesheet" type="text/css" media="all and (조건A)" href="A.css"> -->
         <style>
             #wrapper{
+                display: none;
                 position: relative;
             }
             #wrapper>.back{
@@ -29,7 +29,22 @@
                 left: 80%;
                 top: 100px;
             }
-            
+            #mobile{
+                width: 100%;
+            }            
+            .view{
+                width: 90%;
+                margin: 0px auto;
+                text-align: center;
+            }
+            @media all and (min-width:768px){
+                #mobile{
+                    display: none;
+                }
+                #wrapper{
+                    display: block;
+                }
+            }
         </style>
     </head>
     <body>
@@ -40,6 +55,11 @@
                 <p>Skill</p>
                 <p>내용</p>
             </div>
-        </div>        
+        </div>  
+        <div id="mobile">
+            <div class="view">
+                <img src="images/cont.png">
+            </div>
+        </div>       
     </body>
 </html>
