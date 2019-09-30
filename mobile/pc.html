@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/script.js"></script>
+        <style>
+            #wrapper{
+                position: relative;
+            }
+            #wrapper>.back{
+                position: absolute;
+                width: 100%;
+                height: 55vh;
+                background-color: #f37022;
+            }
+            #wrapper img{
+                position: absolute;
+                left: 10%;
+                top: 50px;
+            }
+            #wrapper>.detail{
+                color: white;
+                font-weight: bolder;
+                font-size: 50px;
+                position: absolute;
+                left: 1000px;
+                top: 100px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="back"></div>            
+            <img src="images/phone.png" alt="phone img">
+            <div class="detail">
+                <p>Skill</p>
+                <p>내용</p>
+            </div>
+        </div>        
+    </body>
+</html>
