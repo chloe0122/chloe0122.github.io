@@ -34,8 +34,10 @@
                         if (  arrelmLeft[index+1] > 0 ) {
                             moveTop = arrelmLeft[index+1];
                         }
-
+                        //맨 마지막이 되면.....
                         if( index>=($target.length-1) ){
+                            //$(this).css('display','fixed');
+                            elmSelecter.css('position','fixed');
                             moveTop = 0;
                         }
                     // 마우스휠을 아래에서 위로
