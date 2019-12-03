@@ -16,15 +16,15 @@
 
 <script type="text/javascript">
 
-    jQuery(document).on("ready", function() {
-        jQuery(".box").each(function () {
+    $(document).on("ready", function() {
+        $(".box").each(function () {
             
             // 개별적으로 Wheel 이벤트 적용
-            jQuery(this).on("mousewheel DOMMouseScroll", function(event) {
+            $(this).on("mousewheel DOMMouseScroll", function(event) {
 
                 var delta = 0;
                 var moveTop = null;
-                var boxMax = jQuery(".box").length - 1;
+                var boxMax = $(".box").length - 1;
 
                 var winEvent = "";
 
@@ -50,11 +50,11 @@
                 if(delta < 0) {
 
                     // 마지막 BOX 보다 순서값이 작은 경우에 실행
-                    if(jQuery(this).index() < boxMax) {
+                    if($(this).index() < boxMax) {
                         
                         console.log("▼");
-                        if(jQuery(this).next() != undefined) {
-                            moveTop = jQuery(this).next().offset().top;
+                        if($(this).next() != undefined) {
+                            moveTop = $(this).next().offset().top;
                         }
                     }
 
@@ -69,11 +69,11 @@
                 else {
 
                     // 첫번째 BOX 보다 순서값이 큰 경우에 실행
-                    if(jQuery(this).index() > 0) {
+                    if($(this).index() > 0) {
 
                         console.log("▲");
-                        if(jQuery(this).prev() != undefined) {
-                            moveTop = jQuery(this).prev().offset().top;
+                        if($(this).prev() != undefined) {
+                            moveTop = $(this).prev().offset().top;
                         }
                     }
 
@@ -85,7 +85,7 @@
                 }
 
                 // 화면 이동 0.8초(800)
-                jQuery("html,body").stop().animate({
+                $("html,body").stop().animate({
                     scrollTop : moveTop + "px"
                 }
                 , {
