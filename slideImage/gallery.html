@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+        <title>Gallery</title>
+    </head>
+    <body>
+        <header>
+            <h1>Slide Show Gallery</h1>
+        </header>
+        <section>
+            <div class="banner">
+                <p>1/6</p>
+                <button class="prev" onclick="slideImage(0)">〈</button>
+                <button class="next" onclick="slideImage(1)">〉</button>
+            </div>
+            <div class="caption">color-blue</div>
+            <div class="small">
+                <img src="images/img_blue.jpg" alt="color-blue" value="1">
+                <img src="images/img_green.jpg" alt="color-green" value="2">
+                <img src="images/img_purple.jpg" alt="color-purple" value="3">
+                <img src="images/img_red.jpg" alt="color-red" value="4">
+                <img src="images/img_yellow.jpg" alt="color-yellow" value="5">
+                <img src="images/img_black.jpg" alt="color-black" value="6">
+            </div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>
