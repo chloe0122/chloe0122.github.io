@@ -2,11 +2,95 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>WEB PAGE</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+			#wrapper {
+                width: 600px;                
+				margin: 0 auto;
+            }
+            #container{
+                height: 1000px;
+                background-image: url('images/background.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                padding: 70px;                
+            }
+            #container>p{
+                margin: 30px 0;
+            }
+            /* #container>p:nth-of-type(1){
+                color: red;
+            } */
+            .text1{
+                color: red;
+            }
+            .text2{
+                font-weight: bolder;
+            }
+            #container>p:nth-of-type(3){
+                width: 200px;
+                text-align: center;
+                background-color: white;
+                padding: 20px 0;
+                border-radius: 30px;
+            }
+            #container>p:nth-of-type(3):hover{
+                background-color: black;
+                color: #fff;
+            }
+            #container{
+                position: relative;
+            }
+            .banana{
+                width: 110%;
+                position: absolute;
+                bottom: 0px;  
+                left: 0px;              
+            }
+            .circle{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            #header{       
+                /* overflow: hidden;          */
+            }
+            #header div:nth-child(1){
+                float: left;           
+            }
+            #header div:nth-child(2){                
+                float: right;
+            }
+            #header div{
+                display: inline-block;
+            }
+		</style>
 	</head>
 	<body>
-		<p>파일을 수정하였습니다.</p>
-		<p>소은경 웹사이트에 들어오셨습니다.</p>
+        <div id="wrapper">
+			<div id="header">
+				<div>빙그레</div>
+				<div>메뉴</div>
+            </div>
+            <div style="clear:both;"></div>
+			<div id="container">
+				<h1>
+					다양한 맛과 행복으로<br />
+					모두 하나되는 세상
+				</h1>
+				<p class="text1 text2">우유/가공유</p>
+				<p class="text2">
+					고객만족을 넘어서 함께 더 나은 세상을 만드는 것,<br />
+					그것이 바로 빙그레의 가치입니다.
+				</p>
+				<p class="text1">자세히 보기</p>
+				<img src="images/banana.png" class="banana"/>
+				<img src="images/circle.png" class="circle"/>
+			</div>
+		</div>
 	</body>
 </html>
