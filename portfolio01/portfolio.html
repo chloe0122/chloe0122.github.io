@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/3b80ce88de.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>PORTFOLIO</title>
+    <style>
+      #banner {
+        /* 높이지정 */
+        height: 35vh;
+        background-image: url("images/bg_image.jpg");
+      }
+      #portfolio {
+        background: none;
+      }
+			.modal {
+				display: none;
+
+				/* 전체화면으로 만든다 */
+				width: 100%;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, 0.8);
+				padding-top: 80px;
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+
+			/* The Close Button */
+			.close {
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				color: #f1f1f1;
+				font-size: 50px;
+				font-weight: bold;
+				transition: 0.3s;
+			}
+
+			.close:hover,
+			.close:focus {
+				color: #bbb;
+				cursor: pointer;
+			}
+			@keyframes zoom {
+				0% {
+					transform: scale(0);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			/* Modal Content (image) */
+			.modal-content {
+				margin: auto;
+				display: block;
+				width: auto;
+				max-width: 700px;
+			}
+			.modal-content {
+				animation: zoom 0.6s;
+			}
+    </style>
+  </head>
+  <body>
+    <header id="head">
+      <div class="logo">
+        <p>SO EUN <span>K</span>YUNG</p>
+      </div>
+      <nav class="gnb">
+        <input type="checkbox" id="menu_btn" />
+        <label for="menu_btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <ul class="main_menu">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li>
+            <a href="portfolio.html" style="color: #7ed0de; font-weight: bolder;"
+              >PORTFOLIO</a
+            >
+          </li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="banner"></section>
+    <section id="portfolio">
+      <h1><a href="#">PORTFOLIO</a></h1>
+      <h2>최근 작업</h2>
+      <div class="container">
+        <div class="photo">                  
+          <img src="images/port01.png" />
+          <img src="images/port02.png" />
+          <img src="images/port03.png" />
+        </div>
+        <div class="photo">
+          <img src="images/port07.png" />
+          <img src="images/port08.png" />
+          <img src="images/port09.png" />
+        </div>
+        <div class="photo">
+          <img src="images/port04.png" />
+          <img src="images/port05.png" />
+          <img src="images/port06.png" />
+        </div>
+      </div>
+    </section>
+		<!-- The Modal -->
+		<div class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" />
+		</div>
+    <footer id="footer">
+      <p>
+        E-Mail. kyung0446@gmail.com
+      </p>
+      <p>
+        Copyright ⓒ 2020 by SO EUN KYUNG.
+      </p>
+      <p>
+        All Rights Reserved
+      </p>
+    </footer>
+    <script>
+      //modal 객체를 가지고 온다.
+			let modal = document.querySelector(".modal");
+      let imgItems = document.querySelector(".container");
+      imgItems.addEventListener("click",function(e){
+        modal.style.display = "block";
+        modal.children[1].src = e.target.getAttribute("src");
+      });
+
+      let closeBtn = modal.children[0];
+			closeBtn.addEventListener("click", function(){
+				modal.style.display = "none";
+			});
+    </script>
+  </body>
+</html>
