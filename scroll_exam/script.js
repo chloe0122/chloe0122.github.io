@@ -2,7 +2,7 @@
 
     const gnbElem = document.querySelector(".gnb");
     const topElem = document.querySelector(".topBtn");
-    let yHeight = gnbElem.getBoundingClientRect().top;                    
+    let yHeight = gnbElem.offsetTop;
 
     function offsetFixMenu(){   
         if( window.pageYOffset >= yHeight ) {
