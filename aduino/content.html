@@ -1,19 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>아두이노 접속 페이지</title>
+    <title>Document</title>
+    <style>
+      .blue {
+        box-shadow: inset 0px 1px 0px 0px #97c4fe;
+        background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+        background-color: #3d94f6;
+        border-radius: 6px;
+        border: 1px solid #337fed;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #1570cd;
+        width: 30%;
+        text-align: center;
+      }
+      .blue:hover {
+        background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+        background-color: #1e62d0;
+      }
+      .blue:active {
+        position: relative;
+        top: 1px;
+      }
+      .grey {
+        box-shadow: inset 0px 1px 0px 0px #ffffff;
+        background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+        background-color: #ededed;
+        border-radius: 6px;
+        border: 1px solid #dcdcdc;
+        display: inline-block;
+        cursor: pointer;
+        color: #777777;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 6px 24px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #ffffff;
+        width: 30%;
+        text-align: center;
+      }
+      .grey:hover {
+        background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+        background-color: #dfdfdf;
+      }
+      .grey:active {
+        position: relative;
+        top: 1px;
+      }
+      .item {
+        width: 50%;
+        max-width: 300px;
+        height: 80px;
+      }
+      .title {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
-    <form>
-      <div>
-        <label>
-          <input type="radio" name="led" value="H" />
-          켜기
-        </label>
-        <input type="submit" value="전송" />
-      </div>
-    </form>
+    <div class="item">
+      <h1 class="title">기계동작</h1>
+      <a href="#machine=H" class="blue">동작</a>
+      <a href="#machine=L" class="grey">중지</a>
+    </div>
+    <div class="item">
+      <h1 class="title">LED 효과</h1>
+      <a href="#LED=H" class="blue">켜기</a>
+      <a href="#LED=L" class="grey">끄기</a>
+    </div>
+    <div class="item">
+      <h1 class="title">RGB 효과</h1>
+      <a href="#RGB=H" class="blue">켜기</a>
+      <a href="#RGB=L" class="grey">끄기</a>
+    </div>
+    <div class="item">
+      <h1 class="title">서보모터</h1>
+      <a href="#moter=H" class="blue">열림</a>
+      <a href="#moter=L" class="grey">닫힘</a>
+    </div>
   </body>
 </html>
