@@ -4,10 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      div{
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <form method="GET">
-      <input type="submit" name="led" value="L">
+      <input type="submit" name="led" value="on" onclick="fnLedClick();">
+      <a href="index.html?led=on">index.html에 전송</a>
     </form>
-  </body>
+    <script>
+      function fnLedClick(){        
+        const ledElem = document.querySelector('input[name="led"]');
+        let value = ledElem.getAttribute("value");
+        console.log( value );
+        if( value == "on" ){
+          ledElem.setAttribute("value","off");
+          ledElem.style.background = "red";
+        }
+        else{
+          ledElem.setAttribute("value","on");
+          ledElem.style.background = "blue";
+        }
+      }
+    </script>
+  </body>  
 </html>
