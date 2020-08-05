@@ -8,6 +8,12 @@ body {
       margin: 10px auto;
       padding: 20px;
       border: 1px solid #fff;
+      text-align: center;
+  }
+  h1{
+      color: #fff;
+      margin-bottom: 50px;
+      text-shadow: 2px 2px 2px gray;
   }
   a{
       text-decoration: none;
@@ -23,6 +29,7 @@ body {
       padding-top: 40px;
       transition: 0.5s;
       font-weight: bolder;
+      box-shadow: 2px 2px 2px gray;
   }
   a:hover{
       transform: scale(1.1);
