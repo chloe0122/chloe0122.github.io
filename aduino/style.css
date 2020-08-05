@@ -27,21 +27,11 @@ body {
   a:hover{
       transform: scale(1.1);
   }
-  .led{          
+  .on{          
     background: #fff;
     color: #000;
-  }
-  .led::after{
-      content: "ON";
-  }
-  .led.on{
-      background: gray;
-      content: "OFF";
-  }
-  .led.on::after{
-      content: "OFF";
-  }
-  .servo{
+  } 
+  .off{
       background: #f68c1f;
       color: #fff;
   }
