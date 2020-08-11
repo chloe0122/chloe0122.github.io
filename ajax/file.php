@@ -1,3 +1,3 @@
 <?php
-echo $_POST["say"] . " " . $_POST["name"];
+echo $_POST["say"];
 ?>
