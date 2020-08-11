@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let req = new XMLHttpRequest();
+        // req.open("GET","https://chloe0122.github.io/data.txt");
+        // req.send();
+
+        let req = new XMLHttpRequest();
+        req.onreadystatechange = function(){
+            console.log( this.readyState , this.status );
+            if( this.readyState == 4 && this.status == 200){
+                console.log( this.response );
+
+            }
+        }
+        req.open("POST","file.php");
+        req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        req.send("say=hi&name=javascript");
+    </script>
+</body>
+</html>
