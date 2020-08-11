@@ -1,27 +1,44 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html>
+  <head>
+    <title>로그인</title>
+
     <script>
-        // let req = new XMLHttpRequest();
-        // req.open("GET","https://chloe0122.github.io/data.txt");
-        // req.send();
+      function login() {
+        var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            result = JSON.parse(this.responseText).result;
 
-        let req = new XMLHttpRequest();
-        req.onreadystatechange = function(){
-            console.log( this.readyState , this.status );
-            if( this.readyState == 4 && this.status == 200){
-                console.log( this.response );
-
+            if (result == "exist") {
+              document.getElementById("status").innerText = "Login Success";
+            } else {
+              document.getElementById("status").innerText = "Login Fail";
             }
-        }
-        req.open("POST","./file.php");
-        req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        req.send("say="+"hi");
+          }
+        };
+
+        id = document.getElementById("id").value;
+        password = document.getElementById("password").value;
+        ajax.open("POST", "https://chloe0122.github.io/ajax/server.php", true);
+        ajax.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+
+        var data = "id=" + id + "&" + "password=" + password;
+        ajax.send(data);
+      }
     </script>
-</body>
+  </head>
+
+  <body>
+    <pre>id :                <input type="text" id="id" /></pre>
+    <br />
+
+    password : <input type="password" id="password" />
+
+    <input type="button" value="Login" onclick="login()" />
+
+    <p id="status"></p>
+  </body>
 </html>
