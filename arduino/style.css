@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+body {
+  background: #01b9f2;
+  font-weight: bold;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+}
+#wrap {
+  width: 500px;
+  margin: 10px auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.on,
+.off {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.on {
+  background: #f68c1f;
+  color: #000;
+}
+.off {
+  background: #fff;
+  color: #01b9f2;
+}
