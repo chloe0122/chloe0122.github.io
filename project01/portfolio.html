@@ -19,53 +19,39 @@
       #portfolio {
         background: none;
       }
-			.modal {
-				display: none;
+      .modal{
+        display: none;
 
-				/* 전체화면으로 만든다 */
-				width: 100%;
-				height: 100vh;
-				background-color: rgba(0, 0, 0, 0.8);
-				padding-top: 80px;
-				position: fixed;
-				top: 0;
-				left: 0;
-			}
-
-			/* The Close Button */
-			.close {
-				position: absolute;
-				top: 15px;
-				right: 35px;
-				color: #f1f1f1;
-				font-size: 50px;
-				font-weight: bold;
-				transition: 0.3s;
-			}
-
-			.close:hover,
-			.close:focus {
-				color: #bbb;
-				cursor: pointer;
-			}
-			@keyframes zoom {
-				0% {
-					transform: scale(0);
-				}
-				100% {
-					transform: scale(1);
-				}
-			}
-			/* Modal Content (image) */
-			.modal-content {
-				margin: auto;
-				display: block;
-				width: auto;
-				max-width: 700px;
-			}
-			.modal-content {
-				animation: zoom 0.6s;
-			}
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.7);
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .close{
+        color: #fff;
+        font-size: 50px;
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        cursor: pointer;
+      }
+      .modal-content{
+        display: block;
+        width: 80%;        
+        max-width: 600px;
+        margin: 100px auto;
+        animation: zoom 0.5s;
+      }
+      @keyframes zoom {
+          0%{
+            transform: scale(0);
+          }
+          100%{
+            transform: scale(1);
+          }
+      }
     </style>
   </head>
   <body>
@@ -117,7 +103,7 @@
 		<!-- The Modal -->
 		<div class="modal">
 			<span class="close">&times;</span>
-			<img class="modal-content" />
+			<img class="modal-content" src="images/port01.png"/>
 		</div>
     <footer id="footer">
       <p>
@@ -131,18 +117,23 @@
       </p>
     </footer>
     <script>
-      //modal 객체를 가지고 온다.
-			let modal = document.querySelector(".modal");
-      let imgItems = document.querySelector(".container");
-      imgItems.addEventListener("click",function(e){
-        modal.style.display = "block";
-        modal.children[1].src = e.target.getAttribute("src");
-      });
+        const imgItem = document.querySelector(".container");
+        const modalTag = document.querySelector(".modal");
+        imgItem.addEventListener("click",function(e){
+          //this , currentTarget , target
+          // if( this == e.target ) return; 
+          let targetSrc = e.target.getAttribute("src");
+          // console.log(targetSrc);
+          // 모달의 display : block
+          if( targetSrc == null ) return;
+          modalTag.style.display = "block";
+          modalTag.children[1].src = targetSrc;
+        });
 
-      let closeBtn = modal.children[0];
-			closeBtn.addEventListener("click", function(){
-				modal.style.display = "none";
-			});
+        const closeBtn = modalTag.children[0];
+        closeBtn.addEventListener("click",function(){
+          modalTag.style.display = "none";
+        });
     </script>
   </body>
 </html>
