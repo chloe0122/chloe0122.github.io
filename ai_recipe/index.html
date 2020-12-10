@@ -4,48 +4,29 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
     <style>
-      body{
-        background-color: bisque;
-      }
-      #wrap{
-        width: 100%;
-        height: 100%;
-      }
-      #wrap > #container {
-        margin: 20px auto;
-        width: 80%;
-        text-align: center;
-      }
-      #wrap > #container > .title{
-        width: 100%;
-        font-size: 20px;
-        font-weight: bolder;
-        margin: 20px;
-      }
-      #wrap > #container > button {
-        width: 30%;
-        margin: 20px auto;
-      }
-      #view_recipe{
-        width: 80%;
-        text-align: center;
-        font-size: 20px;
-        margin: 20px auto;
-        background-color: #fff;
-        border: 2px solid black;
-      }
+      body{ background-color: bisque; }
+      #wrap{ width: 100%; height: 100%;}
+      #wrap > #container { margin: 20px auto; width: 80%; text-align: center;}
+      #wrap > #container > .title{ width: 100%; font-size: 20px; font-weight: bolder; margin: 20px; }
+      #wrap > #container > button { width: 30%;  margin: 20px auto; }
+      #view{ width: 80%; margin: 10px auto;}
+      #view_recipe{ width: 100%; text-align: center; font-size: 20px; margin: 20px auto; background-color: #fff; border: 2px solid black; }
+      #site{ width: 100%; height: 500px; margin: 10px auto;}
     </style>
   </head>
   <body>
     <div id="wrap">
       <div id="container">
         <div class="title">추천 레시피 보기</div>
-        <button type="button" onclick="init()">시작</button>
+        <button type="button" onclick="init()">카메라 시작</button>
         <div id="webcam-container"></div>
         <div id="label-container"></div> 
-        <button type="button" onclick="view_recipe()">레시피보기</button>      
+        <button type="button" onclick="view_recipe()">레시피보기</button> 
       </div>      
-      <div id="view_recipe"></div>
+      <div id="view">
+        <div id="view_recipe"></div>
+        <iframe id="site"></iframe> 
+      </div>                 
     </div>
     
     <script type="text/javascript">
@@ -112,16 +93,29 @@
       async function view_recipe(){
         await webcam.stop();        
         const prediction = await model.predict(webcam.canvas);
+        let textValue = '';
         for ( let i=0 ; i<prediction.length ; i++ ) {
           let value = prediction[i].probability.toFixed(2);
           if( value > 0.60 ) {
             // console.log( prediction[i].className );
             //레시피 내용을 추가합니다.
             let objAdd = document.createElement('div');
-            objAdd.innerText = prediction[i].className + ' 레시피를 추천합니다'
+            textValue = prediction[i].className;
+            objAdd.innerText = prediction[i].className + ' 를 이용한 레시피 보기'
             document.getElementById("view_recipe").appendChild(objAdd);
+            
+            //만개의 레시피 사이트에서 해당 레시피를 본다.
+            get_10000recipedSite(textValue);
           }
         }
+      }
+
+      function get_10000recipedSite(textValue){
+        // 만개의 레시피에서 데이터를 get 하는 방식을 사용한다.
+        // 레시피가 많기 때문에 db에 데이터를 입력한 다음에 db 값을 읽어들이는 것이 일반적이기는 하지만
+        //window.location.href = 'https://www.10000recipe.com/recipe/list.html?q='+textValue;
+        let objFrame = document.getElementById('site');
+        objFrame.setAttribute('src', 'https://www.10000recipe.com/recipe/list.html?q='+textValue );
       }
     </script>
   </body>
