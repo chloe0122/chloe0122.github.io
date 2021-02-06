@@ -7,11 +7,11 @@ button{
   width: 100px;
   height: 100px;
 }
-button:nth-child(1){
+button.on{
   background-image: url('https://chloe0122.github.io/arduino/on.jpg');
   background-size: cover;
 }
-button:nth-child(2){
+button.off{
   background-image: url('https://chloe0122.github.io/arduino/off.jpg');
   background-size: cover;
 }
