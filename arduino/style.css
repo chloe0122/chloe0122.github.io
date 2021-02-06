@@ -3,3 +3,15 @@
 body{
   background-color: aquamarine;
 }
+button{
+  width: 100px;
+  height: 100px;
+}
+button:nth-child(1){
+  background-image: url(on.jpg);
+  background-size: cover;
+}
+button:nth-child(2){
+  background-image: url(off.jpg);
+  background-size: cover;
+}
